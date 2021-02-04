@@ -1,3 +1,4 @@
+from os import system
 from starlette.applications import Starlette
 from starlette.responses import HTMLResponse
 from starlette.staticfiles import StaticFiles
@@ -6,8 +7,8 @@ import uvicorn, aiohttp, asyncio
 from io import BytesIO
 from fastai2.vision.all import *
 
-model_file_url = 'https://github.com/psmathur/pets_breeds_classifier/blob/master/pets_res_34_export.pkl?raw=true'
-model_file_name = 'export.pkl'
+model_file_url = 'https://drive.google.com/file/d/1-Q1ZFQjLdzEW2SnluoCIWBSmNZbibRA_/view?usp=sharing'
+model_file_name = 'model.pth'
 path = Path(__file__).parent
 
 app = Starlette()
@@ -63,4 +64,4 @@ def form(request):
     return HTMLResponse(index_html.open().read())
 
 if __name__ == "__main__":
-    if "serve" in sys.argv: uvicorn.run(app, host="0.0.0.0", port=8080)
+    if "serve" in system.argv: uvicorn.run(app, host="0.0.0.0", port=8080)
